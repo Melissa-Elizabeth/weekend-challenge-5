@@ -30,8 +30,15 @@ $(document).ready(function(){ // waits for DOM to completly load
   });
 // $() is the selector. Adding listener for clicking delete employee buttons
   $('#employeeTableBody').on('click', '.deleteEmployeeButton', function(){
-    // selecting the row I want to delete
+    // Removing employee salary from total
+    var deletedEmployeeSalary = $(this).parent().prev().text();
+    var deletedEmployeeMonthlyExpenses = deletedEmployeeSalary/ 12;
+    var previousMonthlyExpenses = $('monthlyExpenses').text();
+    var newTotalMonthlyExpenses = previousMonthlyExpenses - deletedEmployeeMonthlyExpenses;
+    $('#monthlyExpenses').text(newTotalMonthlyExpenses);
+    // selecting and deleting the row from table
     $(this).parent().parent().remove();
+
   });
 });
 
