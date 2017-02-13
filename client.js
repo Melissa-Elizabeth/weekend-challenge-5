@@ -15,6 +15,7 @@ $(document).ready(function(){ // waits for DOM to completly load
       '<td>' + idNumber +'</td>' +
       '<td>' + jobTitle +'</td>' +
       '<td>' + annualSalary +'</td>' +
+      '<td><button class="deleteEmployeeButton">Delete</button></td>' +
     '</tr>'
   );
 
@@ -23,6 +24,14 @@ $(document).ready(function(){ // waits for DOM to completly load
     var previousMonthlyExpenses = $('monthlyExpenses').text(); //.val is for inputs
     var totalMonthlyExpenses = parseFloat(previousMonthlyExpenses) + newEmployeeMonthlyExpenses;
     $('#monthlyExpenses').text(totalMonthlyExpenses);
+
+    // Clear out input boxes
+    $('.employeeFormInput').val('');
+  });
+// $() is the selector. Adding listener for clicking delete employee buttons
+  $('#employeeTableBody').on('click', '.deleteEmployeeButton', function(){
+    // selecting the row I want to delete
+    $(this).parent().parent().remove();
   });
 });
 
