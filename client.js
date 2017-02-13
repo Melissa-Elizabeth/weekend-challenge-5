@@ -6,7 +6,7 @@ $(document).ready(function(){ // waits for DOM to completly load
     var idNumber = $('#idNumber').val();
     var jobTitle = $('#jobTitle').val();
     var annualSalary = $('#annualSalary').val();
-    
+
     // add new employee row to DOM
     $('#employeeTableBody').append(
    '<tr>' +
@@ -17,5 +17,15 @@ $(document).ready(function(){ // waits for DOM to completly load
       '<td>' + annualSalary +'</td>' +
     '</tr>'
   );
+
+    // Add monthly salary expenses to the DOM
+    var newEmployeeMonthlyExpenses = annualSalary/ 12;
+    var previousMonthlyExpenses = $('monthlyExpenses').text(); //.val is for inputs
+    var totalMonthlyExpenses = parseFloat(previousMonthlyExpenses) + newEmployeeMonthlyExpenses;
+    $('#monthlyExpenses').text(totalMonthlyExpenses);
   });
 });
+
+// .text is to
+
+// .val is for input
