@@ -1,0 +1,34 @@
+<h1>New Task Name</h1>
+First Name:   <input ng-model="ec.newEmployee.first_name"><br><br>
+Last Name:   <input ng-model="ec.newEmployee.last_name"><br><br>
+Id Number:   <input ng-model="ec.newEmployee.id_number"><br><br>
+Job Title:   <input ng-model="ec.newEmployee.job_title"><br><br>
+Annual Salary:  <input ng-model="ec.newEmployee.annual_salary"><br><br>
+<button ng-click="ec.addEmployee()">Add Employee</button>
+
+
+  <button ng-click="ec.updateEmployee(employee.id)">Complete</button>
+  <button ng-click="ec.deleteEmployee(employee.id)">Delete</button>
+  <!-- <span class="col-xs-3" ng-show="task.status"><button ng-click="tc.uncompleteTask(task.id)" class="btn btn-info">This shouldn't be complete</button></span> -->
+  <table>
+  <thead>
+    <tr>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>ID Number</th>
+  <th>Job Title</th>
+  <th>Annual Salary</th>
+  </tr>
+  </thead>
+<tbody>
+    <tr ng-repeat="employee in ec.employees.list">
+      <td>{{employee.first_name}}</td>
+      <td>{{employee.last_name}}</td>
+      <td>{{employee.id_number}}</td>
+      <td>{{employee.job_title}}</td>
+      <td>{{employee.annual_salary}}</td>
+      </tr>
+  </tbody>
+</table>
+
+<h2> Total Monthly Expenditure: {{ec.monthlySalary}}</h2>
