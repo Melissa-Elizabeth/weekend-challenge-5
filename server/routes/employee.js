@@ -70,8 +70,7 @@ router.post('/', function(req, res) {
 // create a new task in the db
 router.delete('/:id', function(req, res) {
   var employeeToDeleteId = req.params.id;
-  console.log('hit delete route');
-  console.log('here is the id to delete ->', taskToDeleteId);
+
 
   // db query
   // DELETE FROM task WHERE id=7

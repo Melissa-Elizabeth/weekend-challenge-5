@@ -8,9 +8,12 @@
   <script src="scripts/client.js" charset="utf-8"></script>
   <script src="scripts/factories/employee.factory.js" charset="utf-8"></script>
   <script src="scripts/controllers/employee.controller.js" charset="utf-8"></script>
+    <script src="scripts/controllers/home.controller.js" charset="utf-8"></script>
 </head>
 
     <body ng-app="EmployeeApp">
+
+    <nav ng-include="'/views/templates/nav.html'"></nav>
 <main ng-view></main>
 
 </body>

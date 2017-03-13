@@ -12,11 +12,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: 'EmployeeController',
       controllerAs: 'ec'
     })
-    // .when('/about', {
-    //   templateUrl: '/views/about.html',
-    //   controller: 'AboutController',
-    //   controllerAs: 'ac'
-    // })
     .otherwise({
       redirectTo: 'home'
     });

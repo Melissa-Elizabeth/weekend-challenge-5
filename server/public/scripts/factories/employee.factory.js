@@ -1,11 +1,9 @@
 myApp.factory('EmployeeFactory', ['$http', function($http) {
 
-  // var testArrayVariable = ['queso', 'bagel', 'donald bagel', 'salsa'];
-  // testArrayVariable.pop();
 
 var employees ={list: []};
-var monthlySalary = (employees.annual_salary/12);
-console.log(monthlySalary);
+
+
   getEmployee();
 
   function getEmployee() {
@@ -15,6 +13,7 @@ console.log(monthlySalary);
     }).then(function(response) {
       console.log(response.data);
       employees.list = response.data;
+
     });
   }
 
@@ -30,30 +29,36 @@ function addEmployee(newEmployee) {
   });
 }
 
-function deleteEmployee(taskId) {
+function deleteEmployee(employeeid) {
 $http({
   method: 'DELETE',
-  url: '/employee/' + employeeId
+  url: '/employee/' + employeeid,
 }).then(function(response) {
   getEmployee();
 });
 }
 
-  function updateEmployee(employeeId) {
+  function updateEmployee(employeesid) {
     $http({
       method: 'PUT',
-      url: '/employee/' + employeeId
+      url: '/employee/' + employeeid
     }).then(function(response) {
     getEmployee();
     });
   }
-  //
-  // function calculateSalary() {
-  // var totalSalary = 0;
-  // for (var i = 0; i < employees.list.length; i++) {
-  //   totalSalary += employees.list[i].annual_salary;
-  //   monthlySalary = totalSalary/12;
-// }
+
+
+
+
+//
+// var total = 0;
+//     for (var i = 0; i < self.employeeArray.length; i++) {
+//       total += Number(self.employeeArray[i].salary);
+//     }
+//
+//     total = total / 12;
+//     self.employeeSalaryTotal = total;
+//
 //
 // }
 //
@@ -73,8 +78,7 @@ $http({
     updateEmployee: updateEmployee,
     addEmployee: addEmployee,
     deleteEmployee: deleteEmployee,
-    // calculateSalary: calculateSalary,
-    monthlySalary: monthlySalary
+
     // uncompleteTask: uncompleteTask
   };
 }]);
