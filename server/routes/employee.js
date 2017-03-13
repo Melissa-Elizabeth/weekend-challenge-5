@@ -10,12 +10,11 @@ var config = {
   idleTimeoutMillis: 30000
 };
 
-// router.use(bodyParser.json());
-// router.use(bodyParser.urlencoded({extended: true}));
+
 
 var pool = new pg.Pool(config);
 
-// get all tasks
+
 router.get('/', function(req, res) {
   console.log('hit my get all employee route');
   pool.connect(function(err, client, done) {
@@ -23,13 +22,13 @@ router.get('/', function(req, res) {
       console.log(err);
       res.sendStatus(500);
     }else{
-      // SELECT * FROM task;
+
       client.query('SELECT * FROM employees ORDER BY id;', function(err, result) {
-        done(); // close the connection db
+        done();
 
         if(err){
           console.log(err);
-          res.sendStatus(500); // the world exploded
+          res.sendStatus(500);
         }else{
           console.log(result.rows);
           res.status(200).send(result.rows);
@@ -39,15 +38,14 @@ router.get('/', function(req, res) {
   });
 });
 
-// create a new task in the db
+
 router.post('/', function(req, res) {
   console.log('hit post route');
   console.log('here is the body ->', req.body);
 
   var employeeObject = req.body;
 
-  // db query
-  // INSERT INTO task (name) VALUES ('test');
+
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
@@ -58,7 +56,7 @@ router.post('/', function(req, res) {
           done();
           if(err){
             console.log(err);
-            res.sendStatus(500); // the world exploded
+            res.sendStatus(500);
           }else{
             res.sendStatus(201);
           }
@@ -67,13 +65,12 @@ router.post('/', function(req, res) {
   });
 });
 
-// create a new task in the db
+
 router.delete('/:id', function(req, res) {
   var employeeToDeleteId = req.params.id;
 
 
-  // db query
-  // DELETE FROM task WHERE id=7
+
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
@@ -84,7 +81,7 @@ router.delete('/:id', function(req, res) {
           done();
           if(err){
             console.log(err);
-            res.sendStatus(500); // the world exploded
+            res.sendStatus(500);
           }else{
             res.sendStatus(200);
           }
@@ -95,7 +92,7 @@ router.delete('/:id', function(req, res) {
 
 
 
-// create a new task in the db
+
 // router.put('/:id', function(req, res) {
 //   var employeId = req.params.id;
 //   console.log('hit complete route');
