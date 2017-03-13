@@ -47,21 +47,6 @@ $http({
     });
   }
 
-
-
-
-//
-// var total = 0;
-//     for (var i = 0; i < self.employeeArray.length; i++) {
-//       total += Number(self.employeeArray[i].salary);
-//     }
-//
-//     total = total / 12;
-//     self.employeeSalaryTotal = total;
-//
-//
-// }
-//
 // function uncompleteTask(taskId){
 //   $http({
 //     method: 'PUT',
@@ -69,9 +54,7 @@ $http({
 //   }).then(function(response) {
 //     getTasks();
 //   });
-// }
 
-// this is the public API, if it's not in here, your controller won't see it
   return {
     employees: employees,
     getEmployee: getEmployee,
